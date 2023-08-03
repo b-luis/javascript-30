@@ -1,0 +1,5 @@
+Things to learn:
+- key events (keyup, keydown)
+- playing audio (play())
+- transitionend event
+- removing and adding classes

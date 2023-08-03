@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JS Drum Kit</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
+
 <body>
 
 
@@ -57,11 +60,40 @@
   <audio data-key="74" src="sounds/snare.wav"></audio>
   <audio data-key="75" src="sounds/tom.wav"></audio>
   <audio data-key="76" src="sounds/tink.wav"></audio>
+  <script>
 
-<script>
+    /**
+     * TODO:
+     * * Goal: create an interactive webpage that emulates
+     * * the experience of playing drums by just pressing specific letters in a keyboard.
+     */
 
-</script>
+    function playSound(e) {
+      const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+      const key = document.querySelector(`.key[data-key="${e.keyCode}"]`)
 
+      if (key) {
+        key.classList.add('playing');
+        audio.currentTime = 0;  // rewind to the start
+      }
 
+      if (!audio) return; // stops the function from running
+      audio.play()
+    }
+
+    function removeTransition(e) {
+      if (e.propertyName !== 'transform') return // skip it if it's not a transition
+      this.classList.remove('playing')
+    }
+
+    const keys = document.querySelectorAll('.key');
+
+    window.addEventListener('keydown', playSound);
+    keys.forEach((key) =>
+      // transition end event, just like click event
+      key.addEventListener('transitionend', removeTransition)
+    ) 
+  </script>
 </body>
+
 </html>

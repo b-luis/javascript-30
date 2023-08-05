@@ -1,13 +1,12 @@
 
   @import url('https://fonts.googleapis.com/css2?family=Borel&family=Inconsolata:wght@200;300;400&family=Inter:wght@400;600;700&family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap');
 
-
-
 * {
     box-sizing: border-box;
     font-family: 'JetBrains Mono', monospace;
     font-weight: 400;
-    background: #dadada;
+    background: #d9d0d0;
+    color: rgb(58, 56, 56);
 }
 
 html,
@@ -15,10 +14,9 @@ body {
     margin: 0;
 }
 
-body * {
+/* body * {
     outline: 1px solid magenta;
-}
-
+} */
 
 /*
 typography
@@ -33,18 +31,76 @@ h2 {
 
 h1 {
     font-style: italic;
-
 }
 
 h2 {
     font-size: 1rem;
 }
 
+h3 {
+    font-size: 1.5rem;
+}
+
+.fa {
+    margin-top: .5em;
+    font-size: 1.2rem;
+}
+
+
 /*
 layout
 */
 
+main {
+    padding: 0 2em 0 2em;
+}
 
+header {
+    padding-top: 2em;
+    text-align: center;
+}
 
+.card {
+    text-align: center;
+    padding: 2em;
+    border: 2px dotted black;
+    margin: 2em 0;
+}
+    .card:hover {
+        -webkit-box-shadow: -11px 14px 8px 3px rgba(91,91,91,0.61);
+        -moz-box-shadow: -11px 14px 8px 3px rgba(91,91,91,0.61);
+        box-shadow: -11px 14px 8px 3px rgba(91,91,91,0.61);
+    }
+
+    .card a {
+        text-decoration: none;
+        cursor: url('https://fav.farm/😎') 15 0 auto;
+    }
+
+    .card a:hover {
+        border-bottom: 3px dotted rgb(120, 119, 119);
+    }
+
+    @media (min-width: 768px) {
+        main {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .card {
+            flex: 0 0 1;
+            width: 45%;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        
+        .card {
+            flex: 0 0 1;
+            width: 30%;
+        }
+    }  
 
 
